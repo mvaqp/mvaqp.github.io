@@ -1,0 +1,156 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  background: black;
+  font-family: "Red Hat Display", sans-serif;
+  color: white;
+  cursor: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  max-width: max(calc(100vw - 40px), 600px);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.2rem;
+}
+
+p.tagline {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.1rem;
+  margin-top: -0.6rem;
+}
+
+ul.socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2.2rem;
+  opacity: 0.3;
+}
+ul.socials li.social {
+  list-style: none;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+ul.socials li.social > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-item: center;
+  justify-content: center;
+}
+ul.socials li.social > a > img {
+  width: 18px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.15);
+  padding-bottom: 1rem;
+}
+
+.inverted-page-mask {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79), width 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79), height 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79);
+}
+.inverted-page-mask.show {
+  width: 25px;
+  height: 25px;
+  opacity: 1;
+}
+.inverted-page-mask.show .inverted-page {
+  margin: 12.5px;
+}
+.inverted-page-mask > * {
+  pointer-events: none;
+}
+.inverted-page-mask .inverted-page {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  filter: invert(1) saturate(2);
+  background: black;
+  transition: margin 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79);
+}
+.inverted-page-mask .inverted-page .inverted-page-content {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: max-content;
+  z-index: 5;
+}
+
+.cursors {
+  display: none;
+}
+.cursors.show {
+  display: block;
+}
+.cursors .cursor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+}
+.cursors .cursor-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: background 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79), border 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79), transform 0.4s cubic-bezier(0.31, 0.38, 0.27, 1.79);
+}
+.cursors .cursor-2.click {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.discord {
+  opacity: 0.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.discord > img {
+  margin-right: 0.4rem;
+}
